@@ -16,15 +16,15 @@ describe("pensionBase — 천원 절사 후 상·하한", () => {
 describe("employeeInsurance — 근로자 부담 4대보험", () => {
   it("월 300만원: 각 항목 요율대로 (10원 절사)", () => {
     const r = employeeInsurance(3_000_000);
-    // 국민연금 3,000,000 × 4.5% = 135,000
-    expect(r.pension).toBe(135_000);
-    // 건강 3,000,000 × 3.545% = 106,350
-    expect(r.health).toBe(106_350);
-    // 장기요양 106,350 × 12.95% = 13,772 → 13,770
-    expect(r.longTermCare).toBe(13_770);
+    // 국민연금 3,000,000 × 4.75% = 142,500
+    expect(r.pension).toBe(142_500);
+    // 건강 3,000,000 × 3.595% = 107,850
+    expect(r.health).toBe(107_850);
+    // 장기요양 107,850 × 13.14% = 14,171 → 14,170
+    expect(r.longTermCare).toBe(14_170);
     // 고용 3,000,000 × 0.9% = 27,000
     expect(r.employment).toBe(27_000);
-    expect(r.total).toBe(135_000 + 106_350 + 13_770 + 27_000);
+    expect(r.total).toBe(142_500 + 107_850 + 14_170 + 27_000);
   });
 
   it("고소득자는 국민연금이 상한(637만)에서 고정", () => {
