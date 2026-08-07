@@ -2,19 +2,22 @@ import type { MetadataRoute } from "next";
 import { guides } from "@/lib/guides";
 import { SITE_URL } from "@/lib/site";
 
+// 계산기·정적 페이지의 최종 갱신일. 본문을 손볼 때 함께 올려 재크롤링을 유도한다.
+const TOOL_UPDATED = "2026-08-03";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
-    { url: SITE_URL, changeFrequency: "weekly", priority: 1 },
-    { url: `${SITE_URL}/calc/salary`, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${SITE_URL}/calc/severance`, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${SITE_URL}/calc/hourly`, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${SITE_URL}/calc/insurance`, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${SITE_URL}/guide`, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${SITE_URL}/about`, changeFrequency: "yearly", priority: 0.3 },
-    { url: `${SITE_URL}/contact`, changeFrequency: "yearly", priority: 0.3 },
-    { url: `${SITE_URL}/editorial`, changeFrequency: "yearly", priority: 0.4 },
-    { url: `${SITE_URL}/privacy`, changeFrequency: "yearly", priority: 0.2 },
-    { url: `${SITE_URL}/terms`, changeFrequency: "yearly", priority: 0.2 },
+    { url: SITE_URL, lastModified: TOOL_UPDATED, changeFrequency: "weekly", priority: 1 },
+    { url: `${SITE_URL}/calc/salary`, lastModified: TOOL_UPDATED, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${SITE_URL}/calc/severance`, lastModified: TOOL_UPDATED, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${SITE_URL}/calc/hourly`, lastModified: TOOL_UPDATED, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${SITE_URL}/calc/insurance`, lastModified: TOOL_UPDATED, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${SITE_URL}/guide`, lastModified: TOOL_UPDATED, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${SITE_URL}/about`, lastModified: TOOL_UPDATED, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${SITE_URL}/contact`, lastModified: TOOL_UPDATED, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${SITE_URL}/editorial`, lastModified: TOOL_UPDATED, changeFrequency: "yearly", priority: 0.4 },
+    { url: `${SITE_URL}/privacy`, lastModified: TOOL_UPDATED, changeFrequency: "yearly", priority: 0.2 },
+    { url: `${SITE_URL}/terms`, lastModified: TOOL_UPDATED, changeFrequency: "yearly", priority: 0.2 },
   ];
 
   const guidePages: MetadataRoute.Sitemap = guides.map((g) => ({
