@@ -27,7 +27,7 @@ describe("employeeInsurance — 근로자 부담 4대보험", () => {
     expect(r.total).toBe(142_500 + 107_850 + 14_170 + 27_000);
   });
 
-  it("고소득자는 국민연금이 상한(637만)에서 고정", () => {
+  it("고소득자는 국민연금이 상한(659만)에서 고정", () => {
     const r = employeeInsurance(10_000_000);
     expect(r.pension).toBe(Math.floor((RATES.pensionBaseMax * RATES.pension) / 10) * 10);
     // 건강보험은 상한이 사실상 없어 보수에 비례
@@ -37,5 +37,17 @@ describe("employeeInsurance — 근로자 부담 4대보험", () => {
   it("0 이하 입력은 모두 0", () => {
     expect(employeeInsurance(0).total).toBe(0);
     expect(employeeInsurance(-100).total).toBe(0);
+  });
+
+  // 아래 테스트는 계산 로직이 아니라 '고시값 자체'를 고정한다.
+  // 다른 테스트들은 RATES를 기호로 참조하므로 상수가 낡아도 통과한다.
+  // 요율이 바뀌면 이 테스트가 실패해야 갱신을 놓치지 않는다.
+  it("고시값 고정 — 요율·상하한이 현행과 일치", () => {
+    expect(RATES.pension).toBe(0.0475); // 총 9.5%의 절반 (연금개혁 단계 인상)
+    expect(RATES.pensionBaseMax).toBe(6_590_000); // 2026.7~2027.6
+    expect(RATES.pensionBaseMin).toBe(410_000); // 2026.7~2027.6
+    expect(RATES.health).toBe(0.03595); // 건강보험 7.19%의 절반
+    expect(RATES.longTermCareOfHealth).toBe(0.1314); // 장기요양 0.9448% ÷ 7.19%
+    expect(RATES.employment).toBe(0.009);
   });
 });
