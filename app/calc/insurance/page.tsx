@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import CalcGuides from "@/components/CalcGuides";
 import Link from "next/link";
 import InsuranceCalculator from "@/components/InsuranceCalculator";
 import AdSlot from "@/components/AdSlot";
@@ -188,6 +189,7 @@ export default function InsurancePage() {
           </li>
         </ul>
       </section>
+      <CalcGuides calcHref="/calc/insurance" />
     </div>
   );
 }

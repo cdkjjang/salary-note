@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import CalcGuides from "@/components/CalcGuides";
 import Link from "next/link";
 import HourlyCalculator from "@/components/HourlyCalculator";
 import AdSlot from "@/components/AdSlot";
@@ -192,6 +193,7 @@ export default function HourlyPage() {
           </li>
         </ul>
       </section>
+      <CalcGuides calcHref="/calc/hourly" />
     </div>
   );
 }
