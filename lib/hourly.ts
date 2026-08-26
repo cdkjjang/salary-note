@@ -3,16 +3,35 @@
 // ⚠️ 최저임금은 매년 갱신 — 값 변경 시 테스트도 함께 갱신할 것.
 //  - 2025년 최저시급: 10,030원
 //  - 2026년 최저시급: 10,320원 (2025.7 고용노동부 고시, 2.9% 인상)
+//  - 2027년 최저시급: 10,700원 (2026.8.5 고시, 3.7% 인상, 2027.1.1 시행)
+//
+// 최저임금은 고시가 먼저 나오고 이듬해 1월 1일에 효력이 생긴다.
+// 그래서 '현재 최저임금'을 특정 연도로 못 박아 두면 1월 1일에 조용히 틀린 값이 된다.
+// 아래 minWageFor()가 시점에 맞는 값을 고르며, 표에 없는 미래 연도는 가장 최근 값을 쓴다.
 //
 // 월 환산 209시간 = (주 40시간 + 주휴 8시간) × (365/7/12 ≈ 4.345주)
 //   → 주 소정근로 40시간 기준 유급시간 월 약 209시간
+//   (2027년 고시 월 환산액 2,236,300원 = 10,700 × 209 — 이 값과 맞는지로 검산 가능)
 
 export const MIN_WAGE = {
   2025: 10_030,
   2026: 10_320,
+  2027: 10_700,
 } as const;
 
-export const CURRENT_MIN_WAGE = MIN_WAGE[2026];
+const MIN_WAGE_YEARS = Object.keys(MIN_WAGE)
+  .map(Number)
+  .sort((a, b) => a - b);
+
+/** 주어진 시점(기본: 오늘)에 적용되는 최저시급 */
+export function minWageFor(base: Date = new Date()): number {
+  const year = base.getFullYear();
+  const applicable = MIN_WAGE_YEARS.filter((y) => y <= year);
+  const key = (applicable.at(-1) ?? MIN_WAGE_YEARS[0]) as keyof typeof MIN_WAGE;
+  return MIN_WAGE[key];
+}
+
+export const CURRENT_MIN_WAGE = minWageFor();
 
 /** 월 209시간 기준 시급 → 월급 환산 */
 export function monthlyFromHourly(hourly: number): number {

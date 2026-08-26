@@ -21,7 +21,7 @@ export default function HourlyCalculator() {
       <div className="grid grid-cols-2 gap-3">
         <MoneyField
           label="시급"
-          hint={`2026년 최저 ${CURRENT_MIN_WAGE.toLocaleString("ko-KR")}원`}
+          hint={`${new Date().getFullYear()}년 최저 ${CURRENT_MIN_WAGE.toLocaleString("ko-KR")}원`}
           unit="원"
           value={hourly}
           onChange={setHourly}

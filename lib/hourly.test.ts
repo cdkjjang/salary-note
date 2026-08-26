@@ -1,14 +1,35 @@
 import { describe, expect, it } from "vitest";
 import {
   calcHourly,
-  CURRENT_MIN_WAGE,
+  MIN_WAGE,
+  minWageFor,
   monthlyFromHourly,
   weeklyHolidayPay,
 } from "./hourly";
 
-describe("최저임금 상수", () => {
-  it("2026년 최저시급 10,320원", () => {
-    expect(CURRENT_MIN_WAGE).toBe(10_320);
+// 고시값 고정 테스트 — 상수를 기호로만 참조하면 값이 낡아도 통과하므로
+// 연도별 고시액을 리터럴로 박아 둔다.
+describe("최저임금 고시액", () => {
+  it("연도별 고시액", () => {
+    expect(MIN_WAGE[2025]).toBe(10_030);
+    expect(MIN_WAGE[2026]).toBe(10_320);
+    expect(MIN_WAGE[2027]).toBe(10_700); // 2026.8.5 고시, 2027.1.1 시행
+  });
+
+  it("2027년 고시 월 환산액 2,236,300원과 209시간 환산이 일치한다", () => {
+    expect(monthlyFromHourly(MIN_WAGE[2027])).toBe(2_236_300);
+  });
+});
+
+describe("minWageFor — 시점에 맞는 최저시급", () => {
+  it("연도가 바뀌면 그해 고시액이 적용된다", () => {
+    expect(minWageFor(new Date("2026-06-01T00:00:00"))).toBe(10_320);
+    expect(minWageFor(new Date("2026-12-31T00:00:00"))).toBe(10_320);
+    expect(minWageFor(new Date("2027-01-01T00:00:00"))).toBe(10_700);
+  });
+
+  it("표에 없는 미래 연도는 가장 최근 고시액을 쓴다", () => {
+    expect(minWageFor(new Date("2029-03-01T00:00:00"))).toBe(10_700);
   });
 });
 
