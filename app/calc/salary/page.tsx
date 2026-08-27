@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CalcGuides from "@/components/CalcGuides";
+import RelatedTools from "@/components/RelatedTools";
 import Link from "next/link";
 import SalaryCalculator from "@/components/SalaryCalculator";
 import AdSlot from "@/components/AdSlot";
@@ -214,6 +215,7 @@ export default function SalaryPage() {
         </ul>
       </section>
       <CalcGuides calcHref="/calc/salary" />
+      <RelatedTools calc="/calc/salary" />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CalcGuides from "@/components/CalcGuides";
+import RelatedTools from "@/components/RelatedTools";
 import Link from "next/link";
 import SeveranceCalculator from "@/components/SeveranceCalculator";
 import AdSlot from "@/components/AdSlot";
@@ -194,6 +195,7 @@ export default function SeverancePage() {
         </ul>
       </section>
       <CalcGuides calcHref="/calc/severance" />
+      <RelatedTools calc="/calc/severance" />
     </div>
   );
 }
