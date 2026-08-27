@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CalcGuides from "@/components/CalcGuides";
+import NextStep from "@/components/NextStep";
 import RelatedTools from "@/components/RelatedTools";
 import Link from "next/link";
 import SalaryCalculator from "@/components/SalaryCalculator";
@@ -68,6 +69,8 @@ export default function SalaryPage() {
         얼마인지, 비과세와 부양가족까지 반영해 알려드립니다.
       </p>
       <SalaryCalculator />
+
+      <NextStep calc="/calc/salary" />
 
       <AdSlot slot="salary-below-tool" />
 

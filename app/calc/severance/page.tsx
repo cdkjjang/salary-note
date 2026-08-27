@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CalcGuides from "@/components/CalcGuides";
+import NextStep from "@/components/NextStep";
 import RelatedTools from "@/components/RelatedTools";
 import Link from "next/link";
 import SeveranceCalculator from "@/components/SeveranceCalculator";
@@ -68,6 +69,8 @@ export default function SeverancePage() {
         계산합니다. 상여금이 있으면 함께 반영하세요.
       </p>
       <SeveranceCalculator />
+
+      <NextStep calc="/calc/severance" />
 
       <AdSlot slot="severance-below-tool" />
 

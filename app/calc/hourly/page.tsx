@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CalcGuides from "@/components/CalcGuides";
+import NextStep from "@/components/NextStep";
 import RelatedTools from "@/components/RelatedTools";
 import Link from "next/link";
 import HourlyCalculator from "@/components/HourlyCalculator";
@@ -68,6 +69,8 @@ export default function HourlyPage() {
         계산하고, 최저임금 미달인지 확인해 드립니다.
       </p>
       <HourlyCalculator />
+
+      <NextStep calc="/calc/hourly" />
 
       <AdSlot slot="hourly-below-tool" />
 

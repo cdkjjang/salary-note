@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CalcGuides from "@/components/CalcGuides";
+import NextStep from "@/components/NextStep";
 import RelatedTools from "@/components/RelatedTools";
 import Link from "next/link";
 import InsuranceCalculator from "@/components/InsuranceCalculator";
@@ -64,6 +65,8 @@ export default function InsurancePage() {
         떼는지 계산합니다.
       </p>
       <InsuranceCalculator />
+
+      <NextStep calc="/calc/insurance" />
 
       <AdSlot slot="insurance-below-tool" />
 
