@@ -5,6 +5,9 @@ import { MoneyField, ResultCard, parseMoney } from "./fields";
 import { formatWon } from "@/lib/date";
 import { calcHourly, CURRENT_MIN_WAGE } from "@/lib/hourly";
 
+// 힌트에 연도를 렌더 중에 붙이면(new Date()) 서버(빌드 시점)와 브라우저(조회 시점)가
+// 어긋나 hydration 오류가 난다. 값 자체를 minWageFor()가 오늘 기준으로 고르므로
+// 연도 표기는 생략한다.
 export default function HourlyCalculator() {
   const [hourly, setHourly] = useState(String(CURRENT_MIN_WAGE));
   const [weeklyHours, setWeeklyHours] = useState("40");
@@ -21,7 +24,7 @@ export default function HourlyCalculator() {
       <div className="grid grid-cols-2 gap-3">
         <MoneyField
           label="시급"
-          hint={`${new Date().getFullYear()}년 최저 ${CURRENT_MIN_WAGE.toLocaleString("ko-KR")}원`}
+          hint={`현재 최저 ${CURRENT_MIN_WAGE.toLocaleString("ko-KR")}원`}
           unit="원"
           value={hourly}
           onChange={setHourly}
