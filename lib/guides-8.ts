@@ -1,8 +1,9 @@
 import type { Guide } from "./guide-types";
 
 // 보험료 정산 1편 — 4월 급여.
-// `four-insurance-explained`가 요율 구조를, `year-end-settlement`가 소득세
-// 연말정산을 다룬다. 이 글은 그 둘과 다른 '건강보험료 연말정산'이다.
+// `four-insurance-explained`가 요율 구조를 다루고, 소득세 연말정산은
+// 2026-09-06 통합으로 세금노트(tax.lifebanjang.com)로 넘겼다.
+// 이 글은 그 둘과 다른 '건강보험료 연말정산'이다.
 // 4월에 급여가 유독 적은 이유를 묻는 검색이 매년 반복된다.
 // ⚠️ 요율은 lib/insurance.ts의 값과 같아야 한다. faq에는 ** 를 쓰지 말 것.
 
@@ -110,11 +111,7 @@ export const guides8: Guide[] = [
         a: "퇴직 시점에 그때까지의 보험료를 정산하는 절차가 있습니다. 마지막 급여나 퇴직금에서 조정되는 경우가 많으니 급여 담당자에게 미리 확인하세요.",
       },
     ],
-    related: [
-      "four-insurance-explained",
-      "four-insurance-2026",
-      "year-end-settlement",
-    ],
+    related: ["four-insurance-explained", "salary-net-explained"],
     cta: { href: "/calc/insurance", label: "4대보험료 계산해 보기" },
   },
 ];

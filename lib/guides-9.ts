@@ -104,11 +104,7 @@ export const guides9: Guide[] = [
         a: "재직 기간에는 포함되는 것이 일반적이지만, 실업급여의 피보험단위기간에는 무급일이 산입되지 않습니다. 무급휴직이 길면 나중에 180일 요건을 채우는 데 영향이 있습니다.",
       },
     ],
-    related: [
-      "annual-leave-allowance",
-      "annual-leave-promotion",
-      "holiday-work-pay",
-    ],
+    related: ["annual-leave-allowance", "holiday-work-pay"],
     cta: { href: "/calc/salary", label: "연봉 실수령액 계산하기" },
   },
 ];

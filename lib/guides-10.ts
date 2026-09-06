@@ -116,11 +116,7 @@ export const guides10: Guide[] = [
         a: "사업주가 신고하지 않았더라도 근로자였다는 사실이 인정되면 처리됩니다. 다쳤다면 신고 여부와 관계없이 근로복지공단에 신청하세요.",
       },
     ],
-    related: [
-      "four-insurance-explained",
-      "weekly-holiday-allowance",
-      "probation-pay",
-    ],
+    related: ["four-insurance-explained", "weekly-holiday-allowance", "probation-pay"],
     cta: { href: "/calc/insurance", label: "4대보험료 계산해 보기" },
   },
 ];

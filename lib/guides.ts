@@ -9,10 +9,11 @@ import { guides7 } from "./guides-7";
 import { guides8 } from "./guides-8";
 import { guides9 } from "./guides-9";
 import { guides10 } from "./guides-10";
+import { guides11 } from "./guides-11";
 
 export type { Guide, GuideSection } from "./guide-types";
 
-const rawGuides: Guide[] = [...guides1, ...guides2, ...guides3, ...guides4, ...guides5, ...guides6, ...guides7, ...guides8, ...guides9, ...guides10];
+const rawGuides: Guide[] = [...guides1, ...guides2, ...guides3, ...guides4, ...guides5, ...guides6, ...guides7, ...guides8, ...guides9, ...guides10, ...guides11];
 
 /**
  * related를 양방향으로 채운다.

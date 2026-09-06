@@ -195,8 +195,8 @@ export default function HourlyPage() {
             </Link>
           </li>
           <li>
-            <Link href="/guide/minimum-wage-2026" className="text-accent underline-offset-4 hover:underline">
-              2026년 최저임금·주휴수당 가이드 →
+            <Link href="/guide/minimum-wage-2027" className="text-accent underline-offset-4 hover:underline">
+              최저임금·주휴수당 가이드 → 2026·2027년 금액과 월급 환산
             </Link>
           </li>
         </ul>
