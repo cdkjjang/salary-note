@@ -7,11 +7,14 @@ import HourlyCalculator from "@/components/HourlyCalculator";
 import AdSlot from "@/components/AdSlot";
 import CalcNotes from "@/components/CalcNotes";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { CURRENT_MIN_WAGE, CURRENT_MIN_WAGE_YEAR } from "@/lib/hourly";
 
+// ⚠️ 제목·설명의 연도와 금액을 **직접 적지 말 것.** `lib/hourly.ts`의 표에서 끌어온다.
+//    손으로 적으면 1월 1일에 제목만 낡아 계산 결과와 어긋난다.
+//    한국어 검색은 "2026 최저임금"처럼 연도를 붙이므로 제목에 연도를 둔다.
 export const metadata: Metadata = {
-  title: "시급·주휴수당 계산기 — 최저임금 기준 월급 환산",
-  description:
-    "시급과 주 근로시간을 넣으면 주휴수당을 포함한 주급·월급을 계산하고 2026년 최저임금(10,320원) 미달 여부까지 확인합니다.",
+  title: `${CURRENT_MIN_WAGE_YEAR}년 시급·주휴수당 계산기 — 최저임금 기준 월급 환산`,
+  description: `시급과 주 근로시간을 넣으면 주휴수당을 포함한 주급·월급을 계산하고 ${CURRENT_MIN_WAGE_YEAR}년 최저임금(${CURRENT_MIN_WAGE.toLocaleString()}원) 미달 여부까지 확인합니다.`,
   alternates: { canonical: "/calc/hourly" },
 };
 

@@ -23,15 +23,29 @@ const MIN_WAGE_YEARS = Object.keys(MIN_WAGE)
   .map(Number)
   .sort((a, b) => a - b);
 
-/** 주어진 시점(기본: 오늘)에 적용되는 최저시급 */
-export function minWageFor(base: Date = new Date()): number {
+/** 주어진 시점(기본: 오늘)에 **적용되는 최저임금의 고시 연도** */
+export function minWageYearFor(base: Date = new Date()): number {
   const year = base.getFullYear();
   const applicable = MIN_WAGE_YEARS.filter((y) => y <= year);
-  const key = (applicable.at(-1) ?? MIN_WAGE_YEARS[0]) as keyof typeof MIN_WAGE;
+  return applicable.at(-1) ?? MIN_WAGE_YEARS[0];
+}
+
+/** 주어진 시점(기본: 오늘)에 적용되는 최저시급 */
+export function minWageFor(base: Date = new Date()): number {
+  const key = minWageYearFor(base) as keyof typeof MIN_WAGE;
   return MIN_WAGE[key];
 }
 
 export const CURRENT_MIN_WAGE = minWageFor();
+
+/**
+ * 지금 적용 중인 최저임금의 연도.
+ *
+ * 화면 제목·설명에 "2026년"처럼 연도를 적을 때 **직접 쓰지 말고 이 값을 쓸 것.**
+ * 손으로 적으면 1월 1일에 제목만 낡아 계산 결과와 어긋난다(2027년 값은 이미
+ * 표에 들어 있으므로 해가 바뀌면 이 값이 알아서 2027이 된다).
+ */
+export const CURRENT_MIN_WAGE_YEAR = minWageYearFor();
 
 /** 월 209시간 기준 시급 → 월급 환산 */
 export function monthlyFromHourly(hourly: number): number {
