@@ -101,7 +101,7 @@ export default function InsurancePage() {
       </section>
 
       <CalcNotes
-        updated="2026-08-02"
+        updated="2026-08-15"
         basis={[
           {
             law: "국민연금법 제88조·시행령 제5조",

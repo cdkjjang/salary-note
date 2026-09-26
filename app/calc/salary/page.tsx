@@ -115,7 +115,7 @@ export default function SalaryPage() {
       </section>
 
       <CalcNotes
-        updated="2026-08-02"
+        updated="2026-08-06"
         basis={[
           {
             law: "국민연금법 시행령 제5조",

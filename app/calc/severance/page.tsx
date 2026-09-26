@@ -106,7 +106,7 @@ export default function SeverancePage() {
       </section>
 
       <CalcNotes
-        updated="2026-08-02"
+        updated="2026-08-06"
         basis={[
           {
             law: "근로자퇴직급여 보장법 제8조",

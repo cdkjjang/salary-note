@@ -110,7 +110,7 @@ export default function HourlyPage() {
       </section>
 
       <CalcNotes
-        updated="2026-08-02"
+        updated="2026-08-27"
         basis={[
           {
             law: "최저임금법 제10조 (2026년 적용 최저임금 고시)",
