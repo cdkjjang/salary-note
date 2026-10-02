@@ -7,7 +7,7 @@
 
 - Next.js 16.2.10 (App Router) + TypeScript + Tailwind CSS 4. DB·로그인·결제 없음, 전부 정적.
 - 개발 서버: 워크스페이스 `.claude/launch.json`의 `salary-note-dev` (포트 3600, preview_start 사용)
-- 빌드: `npm run build` / 테스트: `npm test` (vitest 32개)
+- 빌드: `npm run build` / 테스트: `npm test` (vitest 61개)
 - Node는 포터블: 명령 앞에 `$env:Path = "E:\클로드\tools\node;$env:Path"` 필요
 - 배포: `git push origin main` (Vercel 자동 배포)만 사용. 절차는 `DEPLOY.md`
 - 도메인: salary.lifebanjang.com (허브 lifebanjang-hub의 `lib/notes.ts`에 등록)
@@ -36,6 +36,22 @@
     복제된다. `minimum-wage-2027` 한 편에 그해 금액을 더하는 방식으로 간다.
 - 계산기 페이지: `app/calc/{salary,severance,hourly,insurance}/page.tsx` — 각 페이지에 SEO 해설 + FAQPage JSON-LD
 - 애드센스: `components/AdSlot.tsx` — `NEXT_PUBLIC_ADSENSE_CLIENT` 설정 전에는 아무것도 렌더링 안 함
+
+## 2026-10-02 전수 대조 — 다시 들어오기 쉬운 것
+
+- **퇴직금 계산기는 '마지막 근무일'을 받는다**(`lastWorkDate`). 퇴직일은 그 다음 날,
+  계속근로기간은 입사일~마지막 근무일(양 끝 포함), 평균임금은 퇴직일 이전 3개월.
+  예전에는 "퇴사일"을 퇴직일로 계산해 근속이 하루 짧았다(1/1 입사·12/31 마지막 근무 → 1년 미만).
+  **1년 판정은 달력 기준**(`addMonths(join, 12) <= 퇴직일`) — 윤일이 끼면 365일이어도 1년 미만일 수 있다.
+- **국민연금 상한 값은 계산기 페이지 해설에도 있다.** `app/calc/{salary,insurance}/page.tsx`에
+  637만·40만·"약 28만원대"·302,570원이 7월 갱신 뒤에도 남아 있었다. 상한을 바꾸면
+  `Grep`으로 옛 상한과 **그 상한 × 요율 금액**까지 훑을 것(현행 313,020원).
+- **통상임금에 '고정성'을 쓰지 말 것.** 대법원 2024.12.19 전원합의체(2020다247190)가 고정성을
+  요건에서 뺐다. 재직조건·근무일수 조건부 정기상여도 통상임금. 순수 성과급은 '소정근로 대가가
+  아니어서' 제외. 새 기준은 2024.12.19 이후 근로분부터(소급 제한).
+- **월급제 유급휴일 근로 = 월급(100%) + 휴일근로수당 150% → 250%.**
+- 건강보험 정산보험료 분할은 **12회 이내**(건보법 시행령 제39조④). "10회"·"자동 분할"이라고 쓰지 말 것.
+- 근거 링크는 `lib/sources.ts`(원문을 연 것만).
 
 ## 주의사항 (매년 갱신 대상 — 값 변경 시 테스트 동반)
 

@@ -18,7 +18,7 @@ export default function SeveranceCalculator() {
   const outcome = ready
     ? calcSeverance({
         joinDate: join,
-        leaveDate: leave,
+        lastWorkDate: leave,
         monthlyWage: wageMan * 10_000,
         annualBonus: (bonusMan ?? 0) * 10_000,
       })
@@ -28,8 +28,11 @@ export default function SeveranceCalculator() {
     <section className="rounded-2xl border border-border-soft bg-card p-5 shadow-sm">
       <div className="grid grid-cols-2 gap-3">
         <DateField label="입사일" value={join} onChange={setJoin} />
-        <DateField label="퇴사일" value={leave} onChange={setLeave} />
+        <DateField label="마지막 근무일" value={leave} onChange={setLeave} />
       </div>
+      <p className="-mt-1 mb-4 text-sm text-muted">
+        출근한 마지막 날을 넣으세요. 법상 퇴직일은 그 다음 날입니다.
+      </p>
       <MoneyField
         label="퇴직 전 3개월 평균 월급"
         hint="세전, 상여 제외, 만원 단위"
@@ -49,7 +52,7 @@ export default function SeveranceCalculator() {
 
       {!ready && (
         <p className="text-sm text-muted">
-          입사일·퇴사일·월급을 입력하면 바로 계산됩니다.
+          입사일·마지막 근무일·월급을 입력하면 바로 계산됩니다.
         </p>
       )}
 
@@ -74,7 +77,8 @@ export default function SeveranceCalculator() {
           {!outcome.result.eligible && (
             <p className="mt-3 rounded-lg bg-accent/10 p-3 text-sm text-accent-strong">
               계속근로기간이 1년 미만이라 법정 퇴직금 지급 대상이 아닐 수
-              있습니다 (위 금액은 참고용 환산치).
+              있습니다 (위 금액은 참고용 환산치). 1년은 입사일부터 다음 해 같은 날의
+              전날까지 근무해야 채워집니다.
             </p>
           )}
           <p className="mt-4 border-t border-border-soft pt-4 text-sm leading-relaxed text-muted">
