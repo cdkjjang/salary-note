@@ -9,7 +9,7 @@ const ADSENSE_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT ?? "ca-pub-6029964
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} — 연봉 실수령액·퇴직금·주휴수당, 30초 안에 확인`,
+    default: `연봉 실수령액·퇴직금·주휴수당 계산기 | ${SITE_NAME}`,
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
