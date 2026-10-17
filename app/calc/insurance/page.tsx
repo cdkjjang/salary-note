@@ -11,7 +11,7 @@ import { SITE_NAME, SITE_URL } from "@/lib/site";
 export const metadata: Metadata = {
   title: "4대보험 계산기 — 월급에서 얼마 떼나요?",
   description:
-    "월 급여를 넣으면 국민연금·건강보험·장기요양·고용보험 근로자 부담액을 항목별로 계산합니다. 2026년 요율, 국민연금 상한 반영.",
+    "월 급여를 넣으면 국민연금·건강보험·장기요양·고용보험 근로자 부담액을 항목별로 계산합니다. 2026년 요율과 국민연금 상한을 반영했고, 2027년 1월부터는 국민연금 근로자 부담이 4.75%에서 5%로 오릅니다.",
   alternates: { canonical: "/calc/insurance" },
 };
 
