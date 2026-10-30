@@ -84,6 +84,9 @@ export default function InsurancePage() {
           장기요양·고용보험 네 가지입니다. 이 계산기는 근로자 부담분만 보여줍니다.
         </p>
 
+        {/* 두 번째 광고 자리 — 해설 끝, 자주 묻는 질문 앞 */}
+        <AdSlot slot="calc-mid" />
+
         <h2 className="mt-8 text-xl font-bold">자주 묻는 질문</h2>
         <dl className="space-y-4">
           {faq.map(({ q, a }) => (
