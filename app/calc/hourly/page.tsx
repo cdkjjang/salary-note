@@ -73,9 +73,9 @@ export default function HourlyPage() {
       </p>
       <HourlyCalculator />
 
-      <NextStep calc="/calc/hourly" />
-
       <AdSlot slot="hourly-below-tool" />
+
+      <NextStep calc="/calc/hourly" />
 
       <section className="mt-10 space-y-4 text-[15px] leading-relaxed">
         <h2 className="text-xl font-bold">시급을 월급으로 바꿔보면</h2>

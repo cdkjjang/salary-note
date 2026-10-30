@@ -66,9 +66,9 @@ export default function InsurancePage() {
       </p>
       <InsuranceCalculator />
 
-      <NextStep calc="/calc/insurance" />
-
       <AdSlot slot="insurance-below-tool" />
+
+      <NextStep calc="/calc/insurance" />
 
       <section className="mt-10 space-y-4 text-[15px] leading-relaxed">
         <h2 className="text-xl font-bold">4대보험, 무엇을 위한 돈인가요</h2>

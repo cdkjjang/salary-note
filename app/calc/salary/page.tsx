@@ -70,9 +70,9 @@ export default function SalaryPage() {
       </p>
       <SalaryCalculator />
 
-      <NextStep calc="/calc/salary" />
-
       <AdSlot slot="salary-below-tool" />
+
+      <NextStep calc="/calc/salary" />
 
       <section className="mt-10 space-y-4 text-[15px] leading-relaxed">
         <h2 className="text-xl font-bold">실수령액은 왜 연봉의 100%가 아닐까</h2>

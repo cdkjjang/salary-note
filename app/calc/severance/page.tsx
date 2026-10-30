@@ -70,9 +70,9 @@ export default function SeverancePage() {
       </p>
       <SeveranceCalculator />
 
-      <NextStep calc="/calc/severance" />
-
       <AdSlot slot="severance-below-tool" />
+
+      <NextStep calc="/calc/severance" />
 
       <section className="mt-10 space-y-4 text-[15px] leading-relaxed">
         <h2 className="text-xl font-bold">퇴직금, 이렇게 쌓입니다</h2>
