@@ -1,0 +1,7 @@
+User-Agent: *
+Allow: /
+
+#다음 웹마스터 도구 소유확인 (webmaster.daum.net)
+#DaumWebMasterTool:0160446f0395ad40982d86520ddb8e5a96c5c797d31f7b0d1ce10fb1ddea816b:CNSJIIGOISrSV2aL3hPlgQ==
+
+Sitemap: https://salary.lifebanjang.com/sitemap.xml
