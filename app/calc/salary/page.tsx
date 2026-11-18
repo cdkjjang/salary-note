@@ -7,6 +7,7 @@ import SalaryCalculator from "@/components/SalaryCalculator";
 import AdSlot from "@/components/AdSlot";
 import CalcNotes from "@/components/CalcNotes";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { jsonLdScript } from "@/lib/json-ld";
 
 export const metadata: Metadata = {
   title: "연봉 실수령액 계산기 — 4대보험·세금 떼면 월 얼마?",
@@ -61,7 +62,7 @@ export default function SalaryPage() {
     <div>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }}
       />
       <h1 className="mb-2 text-2xl font-extrabold">연봉 실수령액 계산기</h1>
       <p className="mb-6 text-muted">

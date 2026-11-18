@@ -7,6 +7,7 @@ import SeveranceCalculator from "@/components/SeveranceCalculator";
 import AdSlot from "@/components/AdSlot";
 import CalcNotes from "@/components/CalcNotes";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { jsonLdScript } from "@/lib/json-ld";
 
 export const metadata: Metadata = {
   title: "퇴직금 계산기 — 입사일·마지막 근무일과 월급으로 바로 계산",
@@ -61,7 +62,7 @@ export default function SeverancePage() {
     <div>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }}
       />
       <h1 className="mb-2 text-2xl font-extrabold">퇴직금 계산기</h1>
       <p className="mb-6 text-muted">

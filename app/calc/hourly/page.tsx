@@ -8,6 +8,7 @@ import AdSlot from "@/components/AdSlot";
 import CalcNotes from "@/components/CalcNotes";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 import { CURRENT_MIN_WAGE, CURRENT_MIN_WAGE_YEAR } from "@/lib/hourly";
+import { jsonLdScript } from "@/lib/json-ld";
 
 // ⚠️ 제목·설명의 연도와 금액을 **직접 적지 말 것.** `lib/hourly.ts`의 표에서 끌어온다.
 //    손으로 적으면 1월 1일에 제목만 낡아 계산 결과와 어긋난다.
@@ -64,7 +65,7 @@ export default function HourlyPage() {
     <div>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }}
       />
       <h1 className="mb-2 text-2xl font-extrabold">시급·주휴수당 계산기</h1>
       <p className="mb-6 text-muted">

@@ -7,6 +7,7 @@ import InsuranceCalculator from "@/components/InsuranceCalculator";
 import AdSlot from "@/components/AdSlot";
 import CalcNotes from "@/components/CalcNotes";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { jsonLdScript } from "@/lib/json-ld";
 
 export const metadata: Metadata = {
   title: "4대보험 계산기 — 월급에서 얼마 떼나요?",
@@ -57,7 +58,7 @@ export default function InsurancePage() {
     <div>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }}
       />
       <h1 className="mb-2 text-2xl font-extrabold">4대보험 계산기</h1>
       <p className="mb-6 text-muted">
